@@ -1,0 +1,24 @@
+language: python
+
+python:
+  - '2.7'
+  - '3.5'
+  - '3.6'
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - sed -i "s/__version__ = .*/__version__ = '${TRAVIS_TAG:-0.0.0}'/" mate/__init__.py
+  - pex --disable-cache `cat requirements.txt | grep -v ^pex` . -e mate -o mate-${TRAVIS_PYTHON_VERSION:-0.0}.pex
+
+deploy:
+  provider: releases
+  api_key:
+    secure: efuGRMNTlnNKiJoojfQWgZulgafwOx8GxFveShqzwVbXndG+lniWqy1GIRtruIotMvdeKFkmsaiLDPhOAC4w7U7FFzaGMcXhhWZ0YzfLTvzaV9jyGpDmKE+fNOnLGMt/iNLk7Mx8ir1FXBMw1OkNrQyMuUoNbMYtrsR6OHmYxEN1bthpC4jSXByyByHpSixlxMTJlFszugFm7XFFP1WNp4Iv2HiFrS/w1BXmhEo/nlYVx8QhvaSoLcUlWuEUAjAd6ZANJ9/CzzHcfemSyZvqUSqcZAi/LRSJeZ2J/fS0WsZReizeFZ0eLOYoiQs50fUt9SFEnb1heDe1xmHgjxUh0UfGbjKpmBJoT38DstRQ8hU+6YME8L+8eNaH0JKHIH+BkDoNHx+EV91Y0mdIeUr5XlvkYqnE+vGTAbinZLIcd6egUdU4hToJeEfX8p18y7Aq2r9cONKIpCScm+wiIlFOoQ57q0aV4/vzf6YYvTR07xwhI+Q1jCDQ5DYPT+KSzOSrswatKHha+Af8ElVLjzary8iQfVldBfFTXBzZxBwgpSeIV0RkxPOHZHPEKci2PFEdGSXuP3KKJFA7A0aRwo5f04jRORn4S7shFhwqQdLhyq8ufcY2Fz1Hi8B8LNUHyG9OCyXLh/vwfJsGZuMO9SfaYwEKZlVlyUYrGDfKiy82cJM=
+  file: mate-*.pex
+  file_glob: true
+  on:
+    repo: pdericson/mate
+    tags: true
+  skip_cleanup: true
