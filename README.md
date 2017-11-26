@@ -11,7 +11,7 @@ Python 2:
 ```
 curl -fLo mate https://github.com/pdericson/mate/releases/download/0.1.0/mate-2.7.pex
 chmod +x mate
-./mate
+./mate --version
 ```
 
 Python 3:
@@ -19,5 +19,15 @@ Python 3:
 ```
 curl -fLo mate https://github.com/pdericson/mate/releases/download/0.1.0/mate-3.5.pex
 chmod +x mate
-./mate
+./mate --version
+```
+
+## Development
+
+```
+virtualenv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+python -m mate --version
+deactivate
 ```
