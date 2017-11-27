@@ -4,6 +4,18 @@
 
 Aye Aye, Captain!
 
+## Use Case 1
+
+```
+cat > test.yaml <<EOF
+kind: Pod
+EOF
+./mate test.yaml
+test.yaml: u'containers' is a required property
+
+Failed validating u'required' in schema: ...
+```
+
 ## Getting Started
 
 Python 2:
