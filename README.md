@@ -9,7 +9,7 @@ Aye Aye, Captain!
 Python 2:
 
 ```
-curl -fLo mate https://github.com/pdericson/mate/releases/download/0.1.0/mate-2.7.pex
+curl -fLo mate https://github.com/pdericson/mate/releases/download/0.1.1/mate-2.7.pex
 chmod +x mate
 ./mate --version
 ```
@@ -17,7 +17,7 @@ chmod +x mate
 Python 3:
 
 ```
-curl -fLo mate https://github.com/pdericson/mate/releases/download/0.1.0/mate-3.5.pex
+curl -fLo mate https://github.com/pdericson/mate/releases/download/0.1.1/mate-3.5.pex
 chmod +x mate
 ./mate --version
 ```
