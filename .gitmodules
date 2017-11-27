@@ -1,0 +1,3 @@
+[submodule "mate/data/kubernetes-json-schema"]
+	path = mate/data/kubernetes-json-schema
+	url = https://github.com/garethr/kubernetes-json-schema.git

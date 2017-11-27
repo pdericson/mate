@@ -10,7 +10,7 @@ install:
 
 script:
   - sed -i "s/__version__ = .*/__version__ = '${TRAVIS_TAG:-0.0.0}'/" mate/__init__.py
-  - pex --disable-cache `cat requirements.txt | grep -v ^pex` . -e mate -o mate-${TRAVIS_PYTHON_VERSION:-0.0}.pex
+  - pex --disable-cache --not-zip-safe `cat requirements.txt | grep -v ^pex` . -e mate -o mate-${TRAVIS_PYTHON_VERSION:-0.0}.pex
 
 deploy:
   provider: releases
